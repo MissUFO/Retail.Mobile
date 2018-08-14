@@ -1,0 +1,31 @@
+﻿<ion-view view-title="">
+  <ion-header-bar>
+    <h1 class="title">Создать заявку</h1>
+    <div class="buttons">
+      <button class="button button-icon icon ion-close" ng-click="closeEmailForm()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content ng-controller="SendMessageCtrl">
+    <div class="padding">
+      <div class="item">
+        <label class="item item-input">
+          <input type="text" placeholder="Имя" name="namefrom" id="namefrom" ng-model="currentUser.FullName" />
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Адрес эл. почты" name="mailfrom" id="mailfrom" ng-model="currentUser.Email" />
+        </label>
+        <!--<label class="item item-input item-select">
+          <select name="ticket-type" id="ticket-type">
+            <option value="0">Запрос на подключение</option>
+            <option value="1">Проблема с устройством</option>
+            <option value="2">Другое</option>
+          </select>
+        </label>-->
+        <label class="item item-input">
+          <textarea name="msg" id="msg"  cols="40" rows="5" placeholder="Комментарий по заявке" />
+        </label>
+        <button class="button button-block icon-right ion-chevron-right button-assertive" ng-click="btnClick()">Отправить</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

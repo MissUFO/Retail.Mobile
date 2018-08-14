@@ -1,0 +1,15 @@
+﻿<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Видеоинструкция</h1>
+    <div class="buttons">
+      <button class="button button-icon icon ion-close" ng-click="closeVideo()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content has-header="true">
+    
+        <video id="device_video" width="100%" src="{{videoUrl}}" controls>
+          <source ng-src="{{videoUrl}}" >
+        </video>
+     
+  </ion-content>
+</ion-modal-view>

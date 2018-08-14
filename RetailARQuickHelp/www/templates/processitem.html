@@ -1,0 +1,29 @@
+﻿<ion-view view-title="Процесс" hide-nav-bar="false" enable-menu-with-back-views="true" hide-back-button="false">
+  <ion-nav-buttons side="left" >
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content has-header="true">
+    <div class="list card" style="{{ (process==null || process==undefined )? 'display:none' : '' }}">
+      <!-- Item Header -->
+      <div class="item">
+        <!--<img ng-cache ng-src="{{process.ImageUrl}}">-->
+        <h2 style="white-space: normal">{{process.Name}}</h2>
+      </div>
+      <!-- /Item Header -->
+      <div class="item item-body">
+        <!-- If only one image -->
+        <img class="full-image" ng-cache ng-src="{{process.ImageUrl}}" />
+        <!-- END If only one image -->
+        <!-- Description -->
+        <p ng-bind-html="process.Description"></p>
+        <!-- /Description -->
+        <!-- Links -->
+        <p ng-repeat="doc in process.Documents">
+          <button ng-if="doc.DocumentType==1" ng-click="showDocument(doc.DocumentUrl)" class="button button-full button-positive">{{doc.Title}}</button>
+          <button ng-if="doc.DocumentType==0" ng-click="showVideo(doc.DocumentUrl)" class="button button-full button-calm">{{doc.Title}}</button>
+        </p>
+        <!-- /Links -->
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

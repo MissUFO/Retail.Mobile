@@ -1,0 +1,29 @@
+﻿<ion-view view-title="Вход" hide-nav-bar="true" class="login-black">
+  <ion-content has-header="false">
+    <form ng-submit="doLogin()">
+      <div class="list list-inset">
+        <div class="item">
+        </div>
+        <div style="text-align: center">
+          <img src="img/ionic.png" />
+        </div>
+        <div class="item">
+          <!--<span class="input-label">Логин</span>-->
+          <label class="item item-input">
+            <span class="ion-ios-person"></span>
+            <input type="text" placeholder="Логин" ng-model="currentUser.UserName">
+          </label>
+          <!--<span class="input-label">Пароль</span>-->
+          <label class="item item-input">
+            <span class="ion-key"></span>
+            <input type="password" placeholder="Пароль" ng-model="currentUser.Password">
+          </label>
+          <button class="button button-block button-dark" type="submit">Войти через CreatorsHub</button>
+          </div>
+          <div style="text-align: center">
+            <a href="https://creatorshub.adidas.ru/login/password" style="color: white" >Забыли пароль?</a>
+          </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

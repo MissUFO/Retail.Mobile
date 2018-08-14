@@ -1,0 +1,17 @@
+﻿<ion-view view-title="Процессы в магазине" hide-nav-bar="false" enable-menu-with-back-views="true" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content has-header="true">
+    <div class="list list-inset">
+      <ion-search placeholder="Найти" min-length="1" model="processes" source="getData(str)"></ion-search>
+    </div>
+      <div class="search-label">Найдено: {{processes.length}}</div>
+      <ion-list style="{{ (processes==null || processes==undefined || processes.length==0)? 'display:none' : '' }}">
+        <ion-item class="item item-avatar" ng-repeat="p in processes" class="item item-complex {{ $index == 0? 'first' : '' }}" href="#/app/processitem/{{p.Id}}">
+          <img ng-cache ng-src="{{p.ImageUrl}}">
+          <h2 style="white-space: normal">{{p.Name}}</h2>
+        </ion-item>
+      </ion-list>
+</ion-content>
+</ion-view>

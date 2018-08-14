@@ -1,0 +1,10 @@
+{
+  "name": "com.adidas.retail.arquickhelp",
+  "app_id": "",
+  "gulpDependantTasks": [
+    "sass"
+  ],
+  "gulpStartupTasks": [
+    "watch"
+  ]
+}

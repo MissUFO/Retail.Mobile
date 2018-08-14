@@ -1,0 +1,50 @@
+﻿<ion-view view-title="Каталог устройств" hide-nav-bar="false" enable-menu-with-back-views="true" hide-back-button="false">
+  <ion-nav-buttons side="left" >
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content has-header="true">
+    <div class="list card" style="{{ (device==null || device==undefined )? 'display:none' : '' }}">
+      <!-- Item Header -->
+      <div class="item item-avatar">
+        <img ng-cache ng-src="{{device.ImageUrl}}">
+        <h2>{{device.Name}}</h2>
+        <p>{{device.Model}}</p>
+      </div>
+      <!-- /Item Header -->
+      <div class="item item-body">
+        <!-- Slide Show Control -->
+        <div class="slideshow-container" ng-repeat="img in device.Images" >
+          <div class="slides fade" ng-swipe-left="plusSlides(1)" ng-swipe-right="plusSlides(-1)">
+            <!--<div class="numbertext">{{$index + 1}} / {{device.Images.length}}</div>-->
+            <img ng-cache ng-src="{{img.Url}}" style="width: 100%">
+            <div class="text">{{img.Title}}</div>
+          </div>
+          <!--<a class="prev" ng-click="plusSlides(-1)">&#10094;</a>
+          <a class="next" ng-click="plusSlides(1)">&#10095;</a>-->
+        </div>
+        <p>
+          <div style="text-align: center" >
+            <span class="dot" ng-repeat="i in device.Images" ng-init="$last ? showSlides(1) : null" ng-click="currentSlide($index)"></span>
+          </div>
+        </p>
+        <!-- / END Slideshow Control -->
+        <!-- If only one image -->
+        <img ng-if="device.Images==null || device.Images.length == 0" class="full-image" ng-cache ng-src="{{device.ImageUrl}}" />
+        <!-- END If only one image -->
+        <!-- Description -->
+        <p ng-bind-html="device.Description"></p>
+        <!-- /Description -->
+        <!-- Links -->
+        <p ng-repeat="doc in device.Documents">
+          <button ng-if="doc.DocumentType==1" ng-click="showDocument(doc.DocumentUrl)" class="button button-full button-positive">{{doc.Title}}</button>
+          <button ng-if="doc.DocumentType==0" ng-click="showVideo(doc.DocumentUrl)" class="button button-full button-calm">{{doc.Title}}</button>
+        </p>
+        <!-- /Links -->
+        <p>
+          <button ng-click="call()" class="button button-full button-balanced">Позвонить</button>
+          <button ng-click="sendMail()" class="button button-full button-assertive">Создать заявку</button>
+        </p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

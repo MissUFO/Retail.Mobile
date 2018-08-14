@@ -1,0 +1,14 @@
+﻿<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Инструкция</h1>
+    <div class="buttons">
+      <button class="button button-icon icon ion-close" ng-click="closeDocument()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content has-header="true">
+    <ion-scroll zooming="true" direction="xy" style="width: 100%; height: 100%">
+      <div style="width: 5000px; height: 5000px; background: url('{{documentUrl}}') no-repeat"></div>
+    </ion-scroll>
+    <!--<img class="full-image" src="{{documentUrl}}"/>-->
+  </ion-content>
+</ion-modal-view>
